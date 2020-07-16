@@ -26,7 +26,13 @@ export default {
   methods: {
     updateEmployeeCount(e) {
       e.preventDefault();
-      CompanyService.updateEmployeeCount(this.companyId, this.updatedEmployeeCount);
+      return this.confirmUpdate()
+        ? CompanyService.updateEmployeeCount(this.companyId, this.updatedEmployeeCount)
+        : null;
+    },
+    confirmUpdate() {
+      // eslint-disable-next-line
+      return confirm('Are you sure you wish to update?');
     },
   },
   props: ['id', 'numberOfEmployees'],
