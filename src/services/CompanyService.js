@@ -39,7 +39,14 @@ function getById(id) {
   return Promise.resolve(company);
 }
 
+function updateEmployeeCount(id, number) {
+  // eslint-disable-next-line
+  const company = fakeCompanies.find(comp => comp.id === id);
+  company.numberOfEmployees = number;
+}
+
 export default {
   getAll,
   getById,
+  updateEmployeeCount,
 };

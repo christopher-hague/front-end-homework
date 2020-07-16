@@ -13,9 +13,10 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/details',
-      name: 'Details',
+      path: '/company/:id',
+      name: 'company',
       component: Company,
+      props: true,
     },
   ],
 });
