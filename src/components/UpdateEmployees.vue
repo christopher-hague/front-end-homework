@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       companyId: this.id,
-      updatedEmployeeCount: this.numberOfEmployees,
+      updatedEmployeeCount: '',
     };
   },
   methods: {

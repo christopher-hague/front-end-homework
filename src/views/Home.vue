@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is the home page</h1>
+    <h1>Fake Companies</h1>
     <div v-for="company in companies" v-bind:key="company.id">
       <router-link
         :to="{ name: 'company',
@@ -26,7 +26,6 @@ export default {
   created() {
     // eslint-disable-next-line
     CompanyService.getAll().then(response => this.companies = response);
-    console.log(this.companies);
   },
 };
 </script>
