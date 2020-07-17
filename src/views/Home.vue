@@ -30,7 +30,6 @@ export default {
   updated() {
     // eslint-disable-next-line
     CompanyService.getAll().then(response => this.companies = response);
-    console.log('updated');
   },
 };
 </script>

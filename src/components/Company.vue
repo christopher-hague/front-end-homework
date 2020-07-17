@@ -7,14 +7,18 @@
     <p>Total Subscriptions: {{ company.numberOfEmployees * company.subscriptionsPerEmployee }}</p>
     <p>ID: {{ company.id }}</p>
     <UpdateEmployees v-bind:numberOfEmployees="company.numberOfEmployees" v-bind:id="company.id" />
-    <router-link
-      :to="{ name: 'edit',
-      params: {
-        company: company,
-    }}">
-        Update Company
-    </router-link>
-    <router-link :to="{ name: 'home' }">Home</router-link>
+    <div>
+      <router-link
+        :to="{ name: 'edit',
+        params: {
+          company: company,
+      }}">
+          Update Company
+      </router-link>
+    </div>
+    <div>
+      <router-link :to="{ name: 'home' }">Home</router-link>
+    </div>
   </div>
 </template>
 
