@@ -45,8 +45,22 @@ function updateEmployeeCount(id, number) {
   company.numberOfEmployees = number;
 }
 
+function updateDomain(id, domain) {
+  // eslint-disable-next-line
+  const company = fakeCompanies.find(comp => comp.id === id);
+  company.domain = domain;
+}
+
+function updateSubscriptionsPerEmployee(id, number) {
+  // eslint-disable-next-line
+  const company = fakeCompanies.find(comp => comp.id === id);
+  company.numberOfEmployees = number;
+}
+
 export default {
   getAll,
   getById,
   updateEmployeeCount,
+  updateDomain,
+  updateSubscriptionsPerEmployee,
 };

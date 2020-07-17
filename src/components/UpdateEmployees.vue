@@ -1,11 +1,11 @@
 <template>
   <div>
     <form @submit="updateEmployeeCount">
-      <label for="updateEmployeeCount">Update Number of Employees</label>
+      <label for="updatedEmployeeCount">Update Number of Employees</label>
       <input
         type="text"
-        id="company.subscriptionsPerEmployee"
-        for="company.subscriptionsPerEmployee"
+        id="updateEmployeeCount"
+        for="updateEmployeeCount"
         v-model="updatedEmployeeCount"
         :placeholder="[[ numberOfEmployees ]]">
       <input type="submit" value="Submit">
@@ -26,9 +26,11 @@ export default {
   methods: {
     updateEmployeeCount(e) {
       e.preventDefault();
-      return this.confirmUpdate()
-        ? CompanyService.updateEmployeeCount(this.companyId, this.updatedEmployeeCount)
-        : null;
+      if (this.confirmUpdate()) {
+        CompanyService.updateEmployeeCount(this.companyId, this.updatedEmployeeCount);
+        this.updatedEmployeeCount = '';
+      }
+      return null;
     },
     confirmUpdate() {
       // eslint-disable-next-line
