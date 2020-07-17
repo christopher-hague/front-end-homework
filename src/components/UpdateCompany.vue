@@ -82,13 +82,6 @@ export default {
         ? `Domain has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`
         : 'Subscriptions per employee has not been updated.';
     },
-    updateDomain() {
-      const { companyId, updatedDomain } = this;
-      if (!CompanyService.isEmptyString(updatedDomain)) {
-        CompanyService.updateDomain(companyId, updatedDomain);
-        this.updatedDomain = '';
-      }
-    },
     updateCompany(e) {
       e.preventDefault();
       const {
@@ -110,6 +103,13 @@ export default {
       // this.updatedDomain = '';
       this.updatedNumberOfEmployees = '';
       this.updatedSubscriptionsPerEmployee = '';
+    },
+    updateDomain() {
+      const { companyId, updatedDomain } = this;
+      if (!CompanyService.isEmptyString(updatedDomain)) {
+        CompanyService.updateDomain(companyId, updatedDomain);
+        this.updatedDomain = '';
+      }
     },
   },
   props: [
