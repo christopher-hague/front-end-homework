@@ -119,6 +119,7 @@ export default {
         CompanyService.updateDomain(companyId, updatedDomain);
         this.updatedDomain = '';
       }
+      return null;
     },
     updateNumberOfEmployees() {
       const { companyId, updatedNumberOfEmployees } = this;
@@ -129,6 +130,7 @@ export default {
         CompanyService.updateEmployeeCount(companyId, updatedNumberOfEmployees);
         this.updatedNumberOfEmployees = '';
       }
+      return null;
     },
     updateSubscriptionsPerEmployee() {
       const { companyId, updatedSubscriptionsPerEmployee } = this;
@@ -139,6 +141,7 @@ export default {
         CompanyService.updateSubscriptionsPerEmployee(companyId, updatedSubscriptionsPerEmployee);
         this.updatedSubscriptionsPerEmployee = '';
       }
+      return null;
     },
   },
   props: [

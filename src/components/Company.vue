@@ -14,7 +14,7 @@
           company: company,
           name: 'editCompany',
       }}">
-          Update Company
+          Edit Company
       </router-link>
     </div>
     <div>
