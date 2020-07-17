@@ -63,11 +63,19 @@ export default {
       // eslint-disable-next-line
       alert(`${domainUpdateMessage()} \n ${numOfEmployeesUpdateMessage()} \n ${scriptsPerEmployeeUpdateMessage()}`);
     },
+    alertUpdateIsInvalid() {
+      // eslint-disable-next-line
+      alert(`
+        This form cannot be submitted. Be sure that:\n
+        - the domain field contains a string
+        - the number of employees and subscriptions per employee fields contain a valid number
+      `);
+    },
     domainUpdateMessage() {
       const { company, updatedDomain } = this;
       return `Domain has been updated from ${company.domain} to ${updatedDomain}.`;
     },
-    isUpdateValid() {
+    isUpdateInvalid() {
       const {
         updatedDomain,
         updatedNumberOfEmployees,
@@ -91,20 +99,16 @@ export default {
     updateCompany(e) {
       e.preventDefault();
       const {
+        alertUpdateIsInvalid,
         alertUpdates,
-        isUpdateValid,
+        isUpdateInvalid,
         updateDomain,
         updateNumberOfEmployees,
         updateSubscriptionsPerEmployee,
       } = this;
 
-      if (isUpdateValid()) {
-        // eslint-disable-next-line
-        alert(`
-          This form cannot be submitted. Be sure that:\n
-          - the domain field contains a string
-          - the number of employees and subscriptions per employee fields contain a valid number
-        `);
+      if (isUpdateInvalid()) {
+        alertUpdateIsInvalid();
       } else {
         alertUpdates();
         updateDomain();
