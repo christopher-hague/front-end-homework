@@ -24,27 +24,27 @@ export default {
     };
   },
   methods: {
+    confirmUpdate() {
+      // eslint-disable-next-line
+      return confirm('Are you sure you wish to update?');
+    },
+    isUpdateInvalid(n) {
+      return CompanyService.isInvalidNumber(n);
+    },
     updateEmployeeCount(e) {
       e.preventDefault();
+      const { companyId, updatedEmployeeCount } = this;
 
-      if (this.isUpdateInvalid()) {
+      if (this.isUpdateInvalid(updatedEmployeeCount)) {
         // eslint-disable-next-line
         return alert("Please enter a valid number.")
       }
 
       if (this.confirmUpdate()) {
-        CompanyService.updateEmployeeCount(this.companyId, this.updatedEmployeeCount);
+        CompanyService.updateEmployeeCount(companyId, updatedEmployeeCount);
         this.updatedEmployeeCount = '';
       }
       return null;
-    },
-    confirmUpdate() {
-      // eslint-disable-next-line
-      return confirm('Are you sure you wish to update?');
-    },
-    isUpdateInvalid() {
-      // eslint-disable-next-line
-      return isNaN(this.updatedEmployeeCount);
     },
   },
   props: ['id', 'numberOfEmployees'],

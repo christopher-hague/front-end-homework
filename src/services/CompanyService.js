@@ -57,10 +57,16 @@ function updateSubscriptionsPerEmployee(id, number) {
   company.then(v => v.subscriptionsPerEmployee = number);
 }
 
+function isInvalidNumber(n) {
+  // eslint-disable-next-line
+  return isNaN(n);
+}
+
 export default {
   getAll,
   getById,
-  updateEmployeeCount,
+  isInvalidNumber,
   updateDomain,
+  updateEmployeeCount,
   updateSubscriptionsPerEmployee,
 };
