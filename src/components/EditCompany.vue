@@ -46,7 +46,6 @@ export default {
   data() {
     return {
       companyId: this.id,
-      companyName: this.name,
       updatedDomain: '',
       updatedNumberOfEmployees: '',
       updatedSubscriptionsPerEmployee: '',
@@ -115,33 +114,21 @@ export default {
     },
     updateDomain() {
       const { companyId, updatedDomain } = this;
-      if (!CompanyService.isEmptyString(updatedDomain)) {
-        CompanyService.updateDomain(companyId, updatedDomain);
-        this.updatedDomain = '';
-      }
-      return null;
+
+      CompanyService.updateDomain(companyId, updatedDomain);
+      this.updatedDomain = '';
     },
     updateNumberOfEmployees() {
       const { companyId, updatedNumberOfEmployees } = this;
-      if (
-        !CompanyService.isInvalidNumber(updatedNumberOfEmployees)
-        && !CompanyService.isEmptyString(updatedNumberOfEmployees)
-      ) {
-        CompanyService.updateEmployeeCount(companyId, updatedNumberOfEmployees);
-        this.updatedNumberOfEmployees = '';
-      }
-      return null;
+
+      CompanyService.updateEmployeeCount(companyId, updatedNumberOfEmployees);
+      this.updatedNumberOfEmployees = '';
     },
     updateSubscriptionsPerEmployee() {
       const { companyId, updatedSubscriptionsPerEmployee } = this;
-      if (
-        !CompanyService.isInvalidNumber(updatedSubscriptionsPerEmployee)
-        && !CompanyService.isEmptyString(updatedSubscriptionsPerEmployee)
-      ) {
-        CompanyService.updateSubscriptionsPerEmployee(companyId, updatedSubscriptionsPerEmployee);
-        this.updatedSubscriptionsPerEmployee = '';
-      }
-      return null;
+
+      CompanyService.updateSubscriptionsPerEmployee(companyId, updatedSubscriptionsPerEmployee);
+      this.updatedSubscriptionsPerEmployee = '';
     },
   },
   props: [
