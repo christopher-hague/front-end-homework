@@ -66,9 +66,7 @@ export default {
     },
     domainUpdateMessage() {
       const { company, updatedDomain } = this;
-      return updatedDomain !== ''
-        ? `Domain has been updated from ${company.domain} to ${updatedDomain}.`
-        : 'Domain has not been updated.';
+      return `Domain has been updated from ${company.domain} to ${updatedDomain}.`;
     },
     isUpdateValid() {
       const {
@@ -85,15 +83,11 @@ export default {
     },
     numOfEmployeesUpdateMessage() {
       const { company, updatedNumberOfEmployees } = this;
-      return updatedNumberOfEmployees !== ''
-        ? `Number of Employees has been updated from ${company.numberOfEmployees} to ${updatedNumberOfEmployees}.`
-        : 'Number of Employees has not been updated.';
+      return `Number of Employees has been updated from ${company.numberOfEmployees} to ${updatedNumberOfEmployees}.`;
     },
     scriptsPerEmployeeUpdateMessage() {
       const { company, updatedSubscriptionsPerEmployee } = this;
-      return updatedSubscriptionsPerEmployee !== ''
-        ? `Domain has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`
-        : 'Subscriptions per employee has not been updated.';
+      return `Domain has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`;
     },
     updateCompany(e) {
       e.preventDefault();
