@@ -3,31 +3,34 @@
     <h1>Update Company</h1>
     <form @submit="updateCompany">
       <div>
-        <label for="updatedDomain">Update domain: </label>
+        <label for="updateDomain">Update domain: </label>
         <input
           type="text"
-          id="updatedDomain"
-          for="updatedDomain"
+          id="updateDomain"
+          for="updateDomain"
+          :placeholder="[[ domain ]]"
           v-model="updatedDomain">
       </div>
 
       <div>
-        <label for="updatedNumberOfEmployees">Update number of employees: </label>
+        <label for="updateNumberOfEmployees">Update number of employees: </label>
         <input
           type="text"
-          id="updatedNumberOfEmployees"
-          for="updatedNumberOfEmployees"
+          id="updateNumberOfEmployees"
+          for="updateNumberOfEmployees"
+          :placeholder="[[ numberOfEmployees ]]"
           v-model="updatedNumberOfEmployees">
       </div>
 
       <div>
-        <label for="updatedSubscriptionsPerEmployee">
+        <label for="updateSubscriptionsPerEmployee">
           Update number of subscriptions per employee:
         </label>
           <input
             type="text"
-            id="updatedSubscriptionsPerEmployee"
-            for="updatedNumberOfEmployees"
+            id="updateSubscriptionsPerEmployee"
+            for="updateNumberOfEmployees"
+            :placeholder="[[ subscriptionsPerEmployee ]]"
             v-model="updatedSubscriptionsPerEmployee">
       </div>
       <input type="submit" value="Submit">
@@ -44,15 +47,33 @@ export default {
     return {
       companyId: this.id,
       companyName: this.name,
-      updatedDomain: this.domain,
-      updatedNumberOfEmployees: this.numberOfEmployees,
-      updatedSubscriptionsPerEmployee: this.subscriptionsPerEmployee,
+      updatedDomain: '',
+      updatedNumberOfEmployees: '',
+      updatedSubscriptionsPerEmployee: '',
     };
   },
   methods: {
+    alertUpdates() {
+      // eslint-ignore-next-line
+      const domainUpdateMessage = this.updatedDomain !== ''
+        ? `Domain has been updated from ${this.domain} to ${this.updatedDomain}.`
+        : 'Domain has not been updated.';
+
+      const numOfEmployeesUpdateMessage = this.updatedNumberOfEmployees !== ''
+        ? `Number of Employees has been updated from ${this.numberOfEmployees} to ${this.updatedNumberOfEmployees}.`
+        : 'Number of Employees has not been updated.';
+
+      const scriptsPerEmployeeUpdateMessage = this.updatedSubscriptionsPerEmployee !== ''
+        ? `Domain has been updated from ${this.subscriptionsPerEmployee} to ${this.updatedSubscriptionsPerEmployee}.`
+        : 'Subscriptions per employee has not been updated.';
+
+      // eslint-disable-next-line
+      alert(`${domainUpdateMessage} \n ${numOfEmployeesUpdateMessage} \n ${scriptsPerEmployeeUpdateMessage}`);
+    },
     updateCompany(e) {
       e.preventDefault();
 
+      this.alertUpdates();
       CompanyService.updateDomain(this.companyId, this.updatedDomain);
       CompanyService.updateEmployeeCount(this.companyId, this.updatedNumberOfEmployees);
       CompanyService.updateSubscriptionsPerEmployee(
@@ -60,9 +81,9 @@ export default {
         this.updatedSubscriptionsPerEmployee,
       );
 
-      this.updatedDomain = this.domain;
-      this.updatedNumberOfEmployees = this.numberOfEmployees;
-      this.updatedSubscriptionsPerEmployee = this.subscriptionsPerEmployee;
+      this.updatedDomain = '';
+      this.updatedNumberOfEmployees = '';
+      this.updatedSubscriptionsPerEmployee = '';
     },
   },
   props: [

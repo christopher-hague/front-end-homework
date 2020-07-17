@@ -27,5 +27,10 @@ export default {
     // eslint-disable-next-line
     CompanyService.getAll().then(response => this.companies = response);
   },
+  updated() {
+    // eslint-disable-next-line
+    CompanyService.getAll().then(response => this.companies = response);
+    console.log('updated');
+  },
 };
 </script>

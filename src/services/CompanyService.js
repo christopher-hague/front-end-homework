@@ -40,21 +40,21 @@ function getById(id) {
 }
 
 function updateEmployeeCount(id, number) {
+  const company = getById(id);
   // eslint-disable-next-line
-  const company = fakeCompanies.find(comp => comp.id === id);
-  company.numberOfEmployees = number;
+  company.then(v => v.numberOfEmployees = number);
 }
 
 function updateDomain(id, domain) {
+  const company = getById(id);
   // eslint-disable-next-line
-  const company = fakeCompanies.find(comp => comp.id === id);
-  company.domain = domain;
+  company.then(v => v.domain = domain);
 }
 
 function updateSubscriptionsPerEmployee(id, number) {
+  const company = getById(id);
   // eslint-disable-next-line
-  const company = fakeCompanies.find(comp => comp.id === id);
-  company.numberOfEmployees = number;
+  company.then(v => v.subscriptionsPerEmployee = number);
 }
 
 export default {

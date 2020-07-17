@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit="updateEmployeeCount">
-      <label for="updatedEmployeeCount">Update Number of Employees</label>
+      <label for="updateEmployeeCount">Update Number of Employees: </label>
       <input
         type="text"
         id="updateEmployeeCount"
