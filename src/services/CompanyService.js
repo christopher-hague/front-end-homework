@@ -62,9 +62,14 @@ function isInvalidNumber(n) {
   return isNaN(n);
 }
 
+function isEmptyString(str) {
+  return str.length === 0;
+}
+
 export default {
   getAll,
   getById,
+  isEmptyString,
   isInvalidNumber,
   updateDomain,
   updateEmployeeCount,

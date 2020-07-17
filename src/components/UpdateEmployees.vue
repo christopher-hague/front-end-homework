@@ -28,19 +28,24 @@ export default {
       // eslint-disable-next-line
       return confirm('Are you sure you wish to update?');
     },
-    isUpdateInvalid(n) {
-      return CompanyService.isInvalidNumber(n);
+    isUpdateInvalid(input) {
+      return CompanyService.isInvalidNumber(input) || CompanyService.isEmptyString(input);
     },
     updateEmployeeCount(e) {
       e.preventDefault();
-      const { companyId, updatedEmployeeCount } = this;
+      const {
+        companyId,
+        confirmUpdate,
+        isUpdateInvalid,
+        updatedEmployeeCount,
+      } = this;
 
-      if (this.isUpdateInvalid(updatedEmployeeCount)) {
+      if (isUpdateInvalid(updatedEmployeeCount)) {
         // eslint-disable-next-line
         return alert("Please enter a valid number.")
       }
 
-      if (this.confirmUpdate()) {
+      if (confirmUpdate()) {
         CompanyService.updateEmployeeCount(companyId, updatedEmployeeCount);
         this.updatedEmployeeCount = '';
       }
