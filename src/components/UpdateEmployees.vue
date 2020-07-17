@@ -1,14 +1,19 @@
 <template>
   <div>
     <form @submit="updateEmployeeCount">
-      <label for="updateEmployeeCount">Update Number of Employees: </label>
-      <input
-        type="text"
-        id="updateEmployeeCount"
-        for="updateEmployeeCount"
-        v-model="updatedEmployeeCount"
-        :placeholder="[[ numberOfEmployees ]]">
-      <input type="submit" value="Submit">
+      <div class="field">
+        <div class="control">
+          <label for="updateEmployeeCount">Update Number of Employees: </label>
+          <input
+            class="input"
+            type="text"
+            id="updateEmployeeCount"
+            for="updateEmployeeCount"
+            v-model="updatedEmployeeCount"
+            :placeholder="[[ numberOfEmployees ]]">
+          <button class="button" type="submit">Update Employee Count</button>
+        </div>
+      </div>
     </form>
   </div>
 </template>

@@ -1,41 +1,52 @@
 <template>
   <div>
-    <h1>Update {{ company.name }}</h1>
-    <form @submit="updateCompany">
-      <div>
-        <label for="updateDomain">Update domain: </label>
-        <input
-          type="text"
-          id="updateDomain"
-          for="updateDomain"
-          :placeholder="[[ company.domain ]]"
-          v-model="updatedDomain">
-      </div>
-
-      <div>
-        <label for="updateNumberOfEmployees">Update number of employees: </label>
-        <input
-          type="text"
-          id="updateNumberOfEmployees"
-          for="updateNumberOfEmployees"
-          :placeholder="[[ company.numberOfEmployees ]]"
-          v-model="updatedNumberOfEmployees">
-      </div>
-
-      <div>
-        <label for="updateSubscriptionsPerEmployee">
-          Update number of subscriptions per employee:
-        </label>
-          <input
-            type="text"
-            id="updateSubscriptionsPerEmployee"
-            for="updateNumberOfEmployees"
-            :placeholder="[[ company.subscriptionsPerEmployee ]]"
-            v-model="updatedSubscriptionsPerEmployee">
-      </div>
-      <input type="submit" value="Submit">
-    </form>
     <router-link :to="{ name: 'home' }">Home</router-link>
+    <h1 class="title">Update {{ company.name }}</h1>
+    <form @submit="updateCompany">
+      <div class="field">
+        <div class="control">
+          <label class="label" for="updateDomain">Update domain: </label>
+          <input
+            class="input"
+            type="text"
+            id="updateDomain"
+            for="updateDomain"
+            :placeholder="[[ company.domain ]]"
+            v-model="updatedDomain">
+        </div>
+      </div>
+
+      <div class=field>
+        <div class="control">
+          <label class="label" for="updateNumberOfEmployees">Update number of employees: </label>
+          <input
+            class="input"
+            type="text"
+            id="updateNumberOfEmployees"
+            for="updateNumberOfEmployees"
+            :placeholder="[[ company.numberOfEmployees ]]"
+            v-model="updatedNumberOfEmployees">
+        </div>
+      </div>
+
+      <div class=field>
+        <div class="control">
+          <label class="label" for="updateSubscriptionsPerEmployee">
+            Update number of subscriptions per employee:
+          </label>
+            <input
+              class="input"
+              type="text"
+              id="updateSubscriptionsPerEmployee"
+              for="updateNumberOfEmployees"
+              :placeholder="[[ company.subscriptionsPerEmployee ]]"
+              v-model="updatedSubscriptionsPerEmployee">
+        </div>
+      </div>
+      <div class="control">
+        <button class="button" type="submit">Submit</button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -53,7 +64,6 @@ export default {
   },
   methods: {
     alertUpdates() {
-      // eslint-ignore-next-line
       const {
         domainUpdateMessage,
         numOfEmployeesUpdateMessage,

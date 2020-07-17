@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>{{ company.name }}</h1>
+    <h1>
+      <router-link :to="{ name: 'home' }">Home</router-link>
+    </h1>
+    <h1 class="title">About {{ company.name }}</h1>
     <p>Domain: {{ company.domain }}</p>
     <p>Number of Employees: {{ company.numberOfEmployees }}</p>
     <p>Subscriptions per Employee: {{ company.subscriptionsPerEmployee }}</p>
@@ -16,9 +19,6 @@
       }}">
           Edit Company
       </router-link>
-    </div>
-    <div>
-      <router-link :to="{ name: 'home' }">Home</router-link>
     </div>
   </div>
 </template>
