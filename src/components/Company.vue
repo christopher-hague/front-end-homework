@@ -10,11 +10,7 @@
     <router-link
       :to="{ name: 'edit',
       params: {
-        id: company.id,
-        name: company.name,
-        domain: company.domain,
-        numberOfEmployees: company.numberOfEmployees,
-        subscriptionsPerEmployee: company.subscriptionsPerEmployee
+        company: company,
     }}">
         Update Company
     </router-link>

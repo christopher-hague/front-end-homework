@@ -8,7 +8,7 @@
           type="text"
           id="updateDomain"
           for="updateDomain"
-          :placeholder="[[ domain ]]"
+          :placeholder="[[ company.domain ]]"
           v-model="updatedDomain">
       </div>
 
@@ -18,7 +18,7 @@
           type="text"
           id="updateNumberOfEmployees"
           for="updateNumberOfEmployees"
-          :placeholder="[[ numberOfEmployees ]]"
+          :placeholder="[[ company.numberOfEmployees ]]"
           v-model="updatedNumberOfEmployees">
       </div>
 
@@ -30,7 +30,7 @@
             type="text"
             id="updateSubscriptionsPerEmployee"
             for="updateNumberOfEmployees"
-            :placeholder="[[ subscriptionsPerEmployee ]]"
+            :placeholder="[[ company.subscriptionsPerEmployee ]]"
             v-model="updatedSubscriptionsPerEmployee">
       </div>
       <input type="submit" value="Submit">
@@ -56,15 +56,15 @@ export default {
     alertUpdates() {
       // eslint-ignore-next-line
       const domainUpdateMessage = this.updatedDomain !== ''
-        ? `Domain has been updated from ${this.domain} to ${this.updatedDomain}.`
+        ? `Domain has been updated from ${this.company.domain} to ${this.updatedDomain}.`
         : 'Domain has not been updated.';
 
       const numOfEmployeesUpdateMessage = this.updatedNumberOfEmployees !== ''
-        ? `Number of Employees has been updated from ${this.numberOfEmployees} to ${this.updatedNumberOfEmployees}.`
+        ? `Number of Employees has been updated from ${this.company.numberOfEmployees} to ${this.updatedNumberOfEmployees}.`
         : 'Number of Employees has not been updated.';
 
       const scriptsPerEmployeeUpdateMessage = this.updatedSubscriptionsPerEmployee !== ''
-        ? `Domain has been updated from ${this.subscriptionsPerEmployee} to ${this.updatedSubscriptionsPerEmployee}.`
+        ? `Domain has been updated from ${this.company.subscriptionsPerEmployee} to ${this.updatedSubscriptionsPerEmployee}.`
         : 'Subscriptions per employee has not been updated.';
 
       // eslint-disable-next-line
@@ -87,7 +87,7 @@ export default {
     },
   },
   props: [
-    'id', 'name', 'domain', 'numberOfEmployees', 'subscriptionsPerEmployee',
+    'id', 'name', 'company',
   ],
 };
 </script>
