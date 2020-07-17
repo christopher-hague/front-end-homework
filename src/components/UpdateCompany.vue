@@ -86,24 +86,16 @@ export default {
       e.preventDefault();
       const {
         alertUpdates,
-        companyId,
         updateDomain,
         updateNumberOfEmployees,
-        updatedSubscriptionsPerEmployee,
+        updateSubscriptionsPerEmployee,
       } = this;
 
       // check for invalid input before these fire
       alertUpdates();
       updateDomain();
       updateNumberOfEmployees();
-      CompanyService.updateSubscriptionsPerEmployee(
-        companyId,
-        updatedSubscriptionsPerEmployee,
-      );
-
-      // this.updatedDomain = '';
-      // this.updatedNumberOfEmployees = '';
-      this.updatedSubscriptionsPerEmployee = '';
+      updateSubscriptionsPerEmployee();
     },
     updateDomain() {
       const { companyId, updatedDomain } = this;
@@ -120,6 +112,16 @@ export default {
       ) {
         CompanyService.updateEmployeeCount(companyId, updatedNumberOfEmployees);
         this.updatedNumberOfEmployees = '';
+      }
+    },
+    updateSubscriptionsPerEmployee() {
+      const { companyId, updatedSubscriptionsPerEmployee } = this;
+      if (
+        !CompanyService.isInvalidNumber(updatedSubscriptionsPerEmployee)
+        && !CompanyService.isEmptyString(updatedSubscriptionsPerEmployee)
+      ) {
+        CompanyService.updateSubscriptionsPerEmployee(companyId, updatedSubscriptionsPerEmployee);
+        this.updatedSubscriptionsPerEmployee = '';
       }
     },
   },
