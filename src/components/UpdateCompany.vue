@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Update Company</h1>
+    <h1>Update {{ company.name }}</h1>
     <form @submit="updateCompany">
       <div>
         <label for="updateDomain">Update domain: </label>
@@ -70,6 +70,19 @@ export default {
         ? `Domain has been updated from ${company.domain} to ${updatedDomain}.`
         : 'Domain has not been updated.';
     },
+    isUpdateValid() {
+      const {
+        updatedDomain,
+        updatedNumberOfEmployees,
+        updatedSubscriptionsPerEmployee,
+      } = this;
+
+      return CompanyService.isEmptyString(updatedDomain)
+        || CompanyService.isInvalidNumber(updatedNumberOfEmployees)
+        || CompanyService.isEmptyString(updatedNumberOfEmployees)
+        || CompanyService.isInvalidNumber(updatedSubscriptionsPerEmployee)
+        || CompanyService.isEmptyString(updatedSubscriptionsPerEmployee);
+    },
     numOfEmployeesUpdateMessage() {
       const { company, updatedNumberOfEmployees } = this;
       return updatedNumberOfEmployees !== ''
@@ -86,16 +99,25 @@ export default {
       e.preventDefault();
       const {
         alertUpdates,
+        isUpdateValid,
         updateDomain,
         updateNumberOfEmployees,
         updateSubscriptionsPerEmployee,
       } = this;
 
-      // check for invalid input before these fire
-      alertUpdates();
-      updateDomain();
-      updateNumberOfEmployees();
-      updateSubscriptionsPerEmployee();
+      if (isUpdateValid()) {
+        // eslint-disable-next-line
+        alert(`
+          This form cannot be submitted. Be sure that:\n
+          - the domain field contains a string
+          - the number of employees and subscriptions per employee fields contain a valid number
+        `);
+      } else {
+        alertUpdates();
+        updateDomain();
+        updateNumberOfEmployees();
+        updateSubscriptionsPerEmployee();
+      }
     },
     updateDomain() {
       const { companyId, updatedDomain } = this;
