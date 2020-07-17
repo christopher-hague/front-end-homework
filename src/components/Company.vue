@@ -12,6 +12,7 @@
         :to="{ name: 'edit',
         params: {
           company: company,
+          name: 'editCompany',
       }}">
           Update Company
       </router-link>
