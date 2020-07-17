@@ -55,33 +55,59 @@ export default {
   methods: {
     alertUpdates() {
       // eslint-ignore-next-line
-      const domainUpdateMessage = this.updatedDomain !== ''
-        ? `Domain has been updated from ${this.company.domain} to ${this.updatedDomain}.`
-        : 'Domain has not been updated.';
-
-      const numOfEmployeesUpdateMessage = this.updatedNumberOfEmployees !== ''
-        ? `Number of Employees has been updated from ${this.company.numberOfEmployees} to ${this.updatedNumberOfEmployees}.`
-        : 'Number of Employees has not been updated.';
-
-      const scriptsPerEmployeeUpdateMessage = this.updatedSubscriptionsPerEmployee !== ''
-        ? `Domain has been updated from ${this.company.subscriptionsPerEmployee} to ${this.updatedSubscriptionsPerEmployee}.`
-        : 'Subscriptions per employee has not been updated.';
+      const {
+        domainUpdateMessage,
+        numOfEmployeesUpdateMessage,
+        scriptsPerEmployeeUpdateMessage,
+      } = this;
 
       // eslint-disable-next-line
-      alert(`${domainUpdateMessage} \n ${numOfEmployeesUpdateMessage} \n ${scriptsPerEmployeeUpdateMessage}`);
+      alert(`${domainUpdateMessage()} \n ${numOfEmployeesUpdateMessage()} \n ${scriptsPerEmployeeUpdateMessage()}`);
+    },
+    domainUpdateMessage() {
+      const { company, updatedDomain } = this;
+      return updatedDomain !== ''
+        ? `Domain has been updated from ${company.domain} to ${updatedDomain}.`
+        : 'Domain has not been updated.';
+    },
+    numOfEmployeesUpdateMessage() {
+      const { company, updatedNumberOfEmployees } = this;
+      return updatedNumberOfEmployees !== ''
+        ? `Number of Employees has been updated from ${company.numberOfEmployees} to ${updatedNumberOfEmployees}.`
+        : 'Number of Employees has not been updated.';
+    },
+    scriptsPerEmployeeUpdateMessage() {
+      const { company, updatedSubscriptionsPerEmployee } = this;
+      return updatedSubscriptionsPerEmployee !== ''
+        ? `Domain has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`
+        : 'Subscriptions per employee has not been updated.';
+    },
+    updateDomain() {
+      const { companyId, updatedDomain } = this;
+      if (!CompanyService.isEmptyString(updatedDomain)) {
+        CompanyService.updateDomain(companyId, updatedDomain);
+        this.updatedDomain = '';
+      }
     },
     updateCompany(e) {
       e.preventDefault();
+      const {
+        alertUpdates,
+        companyId,
+        updateDomain,
+        updatedNumberOfEmployees,
+        updatedSubscriptionsPerEmployee,
+      } = this;
 
-      this.alertUpdates();
-      CompanyService.updateDomain(this.companyId, this.updatedDomain);
-      CompanyService.updateEmployeeCount(this.companyId, this.updatedNumberOfEmployees);
+      alertUpdates();
+      updateDomain();
+      CompanyService.updateEmployeeCount(companyId, updatedNumberOfEmployees);
       CompanyService.updateSubscriptionsPerEmployee(
-        this.companyId,
-        this.updatedSubscriptionsPerEmployee,
+        companyId,
+        updatedSubscriptionsPerEmployee,
       );
 
-      this.updatedDomain = '';
+      // this.updatedDomain = '';
       this.updatedNumberOfEmployees = '';
       this.updatedSubscriptionsPerEmployee = '';
     },
