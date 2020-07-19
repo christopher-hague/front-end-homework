@@ -7,11 +7,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th><abbr title="ID">ID</abbr></th>
-          <th><abbr title="Domain">Domain</abbr></th>
-          <th><abbr title="Number of Employees">Number of Employees</abbr></th>
-          <th><abbr title="Subscriptions per Employee">Subscriptions Per Employee</abbr></th>
-          <th><abbr title="Total Subscriptions">Total Subscriptions</abbr></th>
+          <th>ID</th>
+          <th>Domain</th>
+          <th>Number of Employees</th>
+          <th>Subscriptions Per Employee</th>
+          <th>Total Subscriptions</th>
         </tr>
       </thead>
       <tbody>
