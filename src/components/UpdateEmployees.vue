@@ -3,7 +3,7 @@
     <form @submit="updateEmployeeCount">
       <div class="field">
         <div class="control">
-          <label for="updateEmployeeCount">Update Number of Employees: </label>
+          <label class="label">Update Number of Employees: </label>
           <input
             class="input"
             type="text"

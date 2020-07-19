@@ -1,13 +1,17 @@
 <template>
   <div>
-    <h1>Fake Companies</h1>
-    <div v-for="company in companies" v-bind:key="company.id">
-      <router-link
-        :to="{ name: 'company',
-        params: { id: company.id, company: company }}">
-        <p>{{ company.name }}</p>
-      </router-link>
-      <p>{{ company.name }} ID: {{ company.id }}</p>
+    <h1 class="title">Fake Companies</h1>
+    <div class="content">
+      <ul v-for="company in companies" v-bind:key="company.id">
+        <li>
+          <router-link
+            :to="{ name: 'company',
+            params: { id: company.id, company: company }}">
+            <p>{{ company.name }}</p>
+          </router-link>
+          <p>ID: {{ company.id }}</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
