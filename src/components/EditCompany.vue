@@ -106,7 +106,7 @@ export default {
     },
     scriptsPerEmployeeUpdateMessage() {
       const { company, updatedSubscriptionsPerEmployee } = this;
-      return `Domain has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`;
+      return `Subscriptions per Employee has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`;
     },
     updateCompany(e) {
       e.preventDefault();
