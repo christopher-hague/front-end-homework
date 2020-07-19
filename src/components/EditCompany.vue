@@ -1,11 +1,11 @@
 <template>
   <div>
     <router-link :to="{ name: 'home' }">Home</router-link>
-    <h1 class="title">Update {{ company.name }}</h1>
+    <h1 class="title">Edit {{ company.name }}</h1>
     <form @submit="updateCompany">
       <div class="field">
         <div class="control">
-          <label class="label" for="updateDomain">Update domain: </label>
+          <label class="label" for="updateDomain">Edit {{ company.name }}'s domain:</label>
           <input
             class="input"
             type="text"
@@ -18,7 +18,9 @@
 
       <div class=field>
         <div class="control">
-          <label class="label" for="updateNumberOfEmployees">Update number of employees: </label>
+          <label class="label" for="updateNumberOfEmployees">
+            Edit {{ company.name }}'s number of employees:
+          </label>
           <input
             class="input"
             type="text"
@@ -32,7 +34,7 @@
       <div class=field>
         <div class="control">
           <label class="label" for="updateSubscriptionsPerEmployee">
-            Update number of subscriptions per employee:
+            Edit {{ company.name }}'s number of subscriptions per employee:
           </label>
             <input
               class="input"
