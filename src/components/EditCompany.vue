@@ -80,7 +80,9 @@ export default {
       alert(`
         This form cannot be submitted. Be sure that:\n
         - the domain field contains a string
-        - the number of employees and subscriptions per employee fields contain a valid number
+        - the domain field must end with '.com'
+        - the number of employees field contains a valid number
+        - the subscriptions per employee field contains a valid number
       `);
     },
     domainUpdateMessage() {
@@ -95,6 +97,7 @@ export default {
       } = this;
 
       return CompanyService.isEmptyString(updatedDomain)
+        || CompanyService.isInvalidDomain(updatedDomain)
         || CompanyService.isInvalidNumber(updatedNumberOfEmployees)
         || CompanyService.isEmptyString(updatedNumberOfEmployees)
         || CompanyService.isInvalidNumber(updatedSubscriptionsPerEmployee)

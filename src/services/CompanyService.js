@@ -66,11 +66,19 @@ function isEmptyString(str) {
   return str.length === 0;
 }
 
+function isInvalidDomain(str) {
+  // eslint-disable-next-line
+  const length = str.length;
+  const topLevelDomain = str.substr(length - 4);
+  return topLevelDomain !== '.com';
+}
+
 export default {
   getAll,
   getById,
   isEmptyString,
   isInvalidNumber,
+  isInvalidDomain,
   updateDomain,
   updateEmployeeCount,
   updateSubscriptionsPerEmployee,

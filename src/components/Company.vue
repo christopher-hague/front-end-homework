@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr>
-          <th>{{ company.id }}</th>
+          <td>{{ company.id }}</td>
           <td>{{ company.domain }}</td>
           <td>{{ company.numberOfEmployees }}</td>
           <td>{{ company.subscriptionsPerEmployee }}</td>
