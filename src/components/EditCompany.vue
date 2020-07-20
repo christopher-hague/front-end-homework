@@ -80,7 +80,7 @@ export default {
       alert(`
         This form cannot be submitted. Be sure that:\n
         - the domain field contains a string
-        - the domain field must end with '.com'
+        - the domain field ends with '.com'
         - the number of employees field contains a valid number
         - the subscriptions per employee field contains a valid number
       `);
