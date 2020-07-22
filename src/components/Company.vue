@@ -1,34 +1,20 @@
 <template>
   <div>
-    <h1>
+    <p>
       <router-link :to="{ name: 'home' }">Home</router-link>
-    </h1>
+    </p>
     <h1 class="title is-1">About {{ company.name }}</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Domain</th>
-          <th>Number of Employees</th>
-          <th>Subscriptions Per Employee</th>
-          <th>Total Subscriptions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ company.id }}</td>
-          <td>{{ company.domain }}</td>
-          <td>{{ company.numberOfEmployees }}</td>
-          <td>{{ company.subscriptionsPerEmployee }}</td>
-          <td>{{ company.numberOfEmployees * company.subscriptionsPerEmployee }}</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div class="content">
+      <CompanyDataTable v-bind:company="company" />
+    </div>
+
     <div class="content">
       <UpdateEmployees
         v-bind:numberOfEmployees="company.numberOfEmployees"
         v-bind:id="company.id" />
     </div>
+
     <div class="content">
       <button class="button">
         <router-link
@@ -45,10 +31,12 @@
 </template>
 
 <script>
+import CompanyDataTable from './CompanyDataTable.vue';
 import UpdateEmployees from './UpdateEmployees.vue';
 
 export default {
   components: {
+    CompanyDataTable,
     UpdateEmployees,
   },
   props: ['company'],
