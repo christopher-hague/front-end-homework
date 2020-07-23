@@ -11,19 +11,23 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ company.id }}</td>
-        <td>{{ company.domain }}</td>
-        <td>{{ company.numberOfEmployees }}</td>
-        <td>{{ company.subscriptionsPerEmployee }}</td>
-        <td>{{ company.numberOfEmployees * company.subscriptionsPerEmployee }}</td>
+        <TableCell v-bind:content="company.id" />
+        <TableCell v-bind:content="company.domain" />
+        <TableCell v-bind:content="company.numberOfEmployees" />
+        <TableCell v-bind:content="company.subscriptionsPerEmployee" />
+        <TableCell v-bind:content="company.numberOfEmployees * company.subscriptionsPerEmployee" />
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import TableCell from './TableCell.vue';
 
 export default {
+  components: {
+    TableCell,
+  },
   props: ['company'],
 };
 </script>
