@@ -2,11 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Domain</th>
-        <th>Number of Employees</th>
-        <th>Subscriptions Per Employee</th>
-        <th>Total Subscriptions</th>
+        <th v-for="field in fields" :key="field">{{ field }}</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +11,7 @@
         <TableCell v-bind:content="company.domain" />
         <TableCell v-bind:content="company.numberOfEmployees" />
         <TableCell v-bind:content="company.subscriptionsPerEmployee" />
-        <TableCell v-bind:content="company.numberOfEmployees * company.subscriptionsPerEmployee" />
+        <TableCell v-bind:content="totalSubscriptions" />
       </tr>
     </tbody>
   </table>
@@ -27,6 +23,17 @@ import TableCell from './TableCell.vue';
 export default {
   components: {
     TableCell,
+  },
+  computed: {
+    totalSubscriptions() {
+      const { company } = this;
+      return company.numberOfEmployees * company.subscriptionsPerEmployee;
+    },
+  },
+  data() {
+    return {
+      fields: ['ID', 'Domain', 'Number of Employees', 'Subscriptions per Employee', 'Total Subscriptions'],
+    };
   },
   props: ['company'],
 };
