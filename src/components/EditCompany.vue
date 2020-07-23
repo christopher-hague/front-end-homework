@@ -89,6 +89,18 @@ export default {
       const { company, updatedDomain } = this;
       return `Domain has been updated from ${company.domain} to ${updatedDomain}. \n`;
     },
+    navToCompanyPage() {
+      const { company } = this;
+
+      this.$router.push({
+        path: `/company/${company.id}`,
+        name: 'company',
+        params: {
+          id: company.id,
+          company,
+        },
+      });
+    },
     isUpdateInvalid() {
       const {
         updatedDomain,
@@ -117,6 +129,7 @@ export default {
         alertUpdateIsInvalid,
         alertUpdates,
         isUpdateInvalid,
+        navToCompanyPage,
         updateDomain,
         updateNumberOfEmployees,
         updateSubscriptionsPerEmployee,
@@ -130,6 +143,8 @@ export default {
         updateNumberOfEmployees();
         updateSubscriptionsPerEmployee();
       }
+
+      navToCompanyPage();
     },
     updateDomain() {
       const { companyId, updatedDomain } = this;
