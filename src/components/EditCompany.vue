@@ -73,7 +73,7 @@ export default {
       } = this;
 
       // eslint-disable-next-line
-      alert(`${domainUpdateMessage()} \n ${numOfEmployeesUpdateMessage()} \n ${scriptsPerEmployeeUpdateMessage()}`);
+      alert(`${domainUpdateMessage()} ${numOfEmployeesUpdateMessage()} ${scriptsPerEmployeeUpdateMessage()}`);
     },
     alertUpdateIsInvalid() {
       // eslint-disable-next-line
@@ -87,7 +87,7 @@ export default {
     },
     domainUpdateMessage() {
       const { company, updatedDomain } = this;
-      return `Domain has been updated from ${company.domain} to ${updatedDomain}.`;
+      return `Domain has been updated from ${company.domain} to ${updatedDomain}. \n`;
     },
     isUpdateInvalid() {
       const {
@@ -105,11 +105,11 @@ export default {
     },
     numOfEmployeesUpdateMessage() {
       const { company, updatedNumberOfEmployees } = this;
-      return `Number of Employees has been updated from ${company.numberOfEmployees} to ${updatedNumberOfEmployees}.`;
+      return `Number of Employees has been updated from ${company.numberOfEmployees} to ${updatedNumberOfEmployees}. \n`;
     },
     scriptsPerEmployeeUpdateMessage() {
       const { company, updatedSubscriptionsPerEmployee } = this;
-      return `Subscriptions per Employee has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}.`;
+      return `Subscriptions per Employee has been updated from ${company.subscriptionsPerEmployee} to ${updatedSubscriptionsPerEmployee}. \n`;
     },
     updateCompany(e) {
       e.preventDefault();
