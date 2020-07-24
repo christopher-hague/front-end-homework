@@ -2,12 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Domain</th>
-        <th>Number of Employees</th>
-        <th>Subscriptions Per Employee</th>
-        <th>Total Subscriptions</th>
+        <th v-for="(field, i) in fields" :key="i">{{ field }}</th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +26,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      fields: ['ID', 'Name', 'Domain', 'Number of Employees', 'Subscriptions per Employee', 'Total Subscriptions'],
+    };
+  },
   props: ['companies'],
 };
 </script>
