@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import CompanyDataTable from './CompanyDataTable.vue';
-import UpdateEmployees from './UpdateEmployees.vue';
+import CompanyDataTable from '../data-table/CompanyDataTable.vue';
+import UpdateEmployees from '../update/UpdateEmployees.vue';
 
 export default {
   components: {

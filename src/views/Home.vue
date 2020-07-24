@@ -7,7 +7,7 @@
 
 <script>
 import CompanyService from '../services/CompanyService';
-import Companies from '../components/Companies.vue';
+import Companies from '../components/company/Companies.vue';
 
 export default {
   name: 'home',

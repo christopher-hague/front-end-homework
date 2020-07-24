@@ -7,11 +7,7 @@
     </thead>
     <tbody>
       <tr>
-        <TableCell v-bind:content="company.id" />
-        <TableCell v-bind:content="company.domain" />
-        <TableCell v-bind:content="company.numberOfEmployees" />
-        <TableCell v-bind:content="company.subscriptionsPerEmployee" />
-        <TableCell v-bind:content="totalSubscriptions" />
+        <TableCell v-for="(cellContent, i) in cellContents" :key="i" v-bind:content="cellContent" />
       </tr>
     </tbody>
   </table>
@@ -25,9 +21,14 @@ export default {
     TableCell,
   },
   computed: {
-    totalSubscriptions() {
-      const { company } = this;
-      return company.numberOfEmployees * company.subscriptionsPerEmployee;
+    cellContents() {
+      return [
+        this.company.id,
+        this.company.domain,
+        this.company.numberOfEmployees,
+        this.company.subscriptionsPerEmployee,
+        this.company.numberOfEmployees * this.company.subscriptionsPerEmployee,
+      ];
     },
   },
   data() {

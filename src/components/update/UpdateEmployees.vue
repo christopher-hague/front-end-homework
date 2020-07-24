@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import CompanyService from '../services/CompanyService';
+import CompanyService from '../../services/CompanyService';
 
 export default {
   data() {
