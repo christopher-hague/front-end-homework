@@ -142,9 +142,8 @@ export default {
         updateDomain();
         updateNumberOfEmployees();
         updateSubscriptionsPerEmployee();
+        navToCompanyPage();
       }
-
-      navToCompanyPage();
     },
     updateDomain() {
       const { companyId, updatedDomain } = this;
