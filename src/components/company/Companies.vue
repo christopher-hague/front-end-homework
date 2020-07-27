@@ -8,10 +8,10 @@
     <tbody>
       <tr v-for="company in companiesData" v-bind:key="company.id">
         <TableCell v-for="(value, key, i) in company"
-            :key="i"
-            :company="company"
-            :content="value"
-            :hasLink="key === 'name'"
+          :key="i"
+          :company="company"
+          :content="value"
+          :hasLink="key === 'name'"
         />
       </tr>
     </tbody>
