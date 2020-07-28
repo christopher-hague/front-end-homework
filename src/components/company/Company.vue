@@ -12,20 +12,22 @@
     <div class="content">
       <UpdateEmployees
         v-bind:numberOfEmployees="company.numberOfEmployees"
-        v-bind:id="company.id" />
+        v-bind:id="company.id"
+      />
     </div>
 
     <div class="content">
-      <button class="button">
-        <router-link
-          :to="{ name: 'edit',
-          params: {
-            company: company,
-            name: 'editCompany',
-        }}">
-            Edit company details
-        </router-link>
-      </button>
+      <router-link
+        :to="{ name: 'edit',
+        params: {
+          company: company,
+          name: 'editCompany',
+        }}"
+      >
+        <button class="button">
+          Edit company details
+        </button>
+      </router-link>
     </div>
   </div>
 </template>

@@ -40,7 +40,7 @@
               class="input"
               type="text"
               id="updateSubscriptionsPerEmployee"
-              for="updateNumberOfEmployees"
+              for="updateSubscriptionsPerEmployee"
               :placeholder="[[ company.subscriptionsPerEmployee ]]"
               v-model="updatedSubscriptionsPerEmployee">
         </div>
